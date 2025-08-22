@@ -9,6 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "engines": {
+  "node": "18.x"
+},
+
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-toast": "^1.2.15",
