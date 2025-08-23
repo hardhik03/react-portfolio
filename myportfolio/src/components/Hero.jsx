@@ -26,20 +26,25 @@ const Hero = () => {
           Hardhik Pyla
         </motion.h1>
 
-        <div className="mb-6">
-  <div className="text-2xl lg:text-3xl font-normal text-white flex flex-row items-center">
-    <span>I am a&nbsp;</span>
-    <span
-      className="inline-block whitespace-nowrap w-[18ch] overflow-hidden"
-    >
+      <div className="mb-6 text-2xl lg:text-3xl font-normal text-white relative h-[2.5rem] w-fit">
+  <span>I am a&nbsp;</span>
+
+  {/* This keeps the layout fixed and prevents resizing */}
+  <span className="inline-block relative w-[18ch] h-full align-middle">
+    <span className="opacity-0 block">Electrical Engineer</span> {/* longest phrase */}
+
+    {/* Animated text (absolutely positioned on top) */}
+    <span className="absolute top-0 left-0">
       <TypingText
         textArray={["Electrical Engineer", "Systems Thinker", "Problem Solver"]}
         speed={75}
         pause={1000}
       />
     </span>
-  </div>
+  </span>
 </div>
+
+
 
 
 
