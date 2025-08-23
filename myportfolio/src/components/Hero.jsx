@@ -26,15 +26,21 @@ const Hero = () => {
           Hardhik Pyla
         </motion.h1>
 
-        {/* Fixed-height wrapper to prevent layout shift */}
-        <div className="mb-6 h-[2.5rem] text-2xl lg:text-3xl font-normal text-white">
-        I am a
-        <TypingText
-          textArray={[" Electrical Engineer", " Systems Thinker", " Problem Solver"]}
-          speed={75}
-          pause={1000}
-        />
-      </div>
+        <div className="mb-6">
+  <div className="text-2xl lg:text-3xl font-normal text-white flex flex-row items-center">
+    <span>I am a&nbsp;</span>
+    <span
+      className="inline-block whitespace-nowrap w-[18ch] overflow-hidden"
+    >
+      <TypingText
+        textArray={["Electrical Engineer", "Systems Thinker", "Problem Solver"]}
+        speed={75}
+        pause={1000}
+      />
+    </span>
+  </div>
+</div>
+
 
 
         <motion.p
