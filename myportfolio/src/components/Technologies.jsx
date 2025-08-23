@@ -14,15 +14,6 @@ const iconvariants = (duration) => ({
 
 
 const skills = {
-  programming: [
-    { name: "C", color: "text-[#00599c]" },
-    { name: "C++", color: "text-[#00599c]" },
-    { name: "Embedded C", color: "text-[#5c6bc0]" },
-    { name: "Python", color: "text-[#3776ab]" },
-    { name: "MATLAB", color: "text-[#e16737]" },
-    { name: "React JS", color: "text-[#61dafb]" },
-    { name: "Tailwind CSS", color: "text-[#38bdf8]" },
-  ],
   simulation: [
     { name: "MATLAB Simulink", color: "text-[#e16737]" },
     { name: "PSCAD", color: "text-[#ffb300]" },
@@ -42,6 +33,15 @@ const skills = {
     { name: "Oscilloscope", color: "text-[#546e7a]" },
     { name: "Multimeter", color: "text-[#455a64]" },
   ],
+  programming: [
+    { name: "C", color: "text-[#00599c]" },
+    { name: "C++", color: "text-[#00599c]" },
+    { name: "Embedded C", color: "text-[#5c6bc0]" },
+    { name: "Python", color: "text-[#3776ab]" },
+    { name: "MATLAB", color: "text-[#e16737]" },
+    { name: "React JS", color: "text-[#61dafb]" },
+    { name: "Tailwind CSS", color: "text-[#38bdf8]" },
+  ],
   softSkills: [
     { name: "Leadership", color: "text-[#7c3aed]" },
     { name: "Team Collaboration", color: "text-[#14b8a6]" },
@@ -58,7 +58,7 @@ const neonStyles = `
   border-radius: 1.5rem;
   padding: 2rem;
   margin: 1.5rem;
-  background: transparent;
+  background: rgba(24, 24, 36, 0.9); /* Match experience card */
   overflow: hidden;
 }
 .neon-card::before {
@@ -130,12 +130,12 @@ const Technologies = () => (
       <div className="w-full text-center text-gray-300 mb-10 text-lg">
         A collection of my technical skills and expertise honed through hands-on engineering and research projects
       </div>
-      <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
-        <SkillCard title="Programming & Scripting" items={skills.programming} />
+      <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">        
         <SkillCard title="Simulation & Design Tools" items={skills.simulation} />
+        <SkillCard title="Hardware & Lab Tools" items={skills.hardware} />
       </div>
       <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl mt-8">
-        <SkillCard title="Hardware & Lab Tools" items={skills.hardware} />
+        <SkillCard title="Programming & Scripting" items={skills.programming} />
         <SkillCard title="Soft Skills" items={skills.softSkills} />
       </div>
     </section>

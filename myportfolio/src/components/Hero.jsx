@@ -29,7 +29,7 @@ const Hero = () => {
             I am a
           </span>
             <TypingText
-        textArray={[" Electrical Engineer", " Systems Thinker", " Power Electronics Enthusiast", " Renewable Energy Advocate", " Problem Solver", " Coffee Powered Engineer"]}
+        textArray={[" Electrical Engineer", " Systems Thinker", " Problem Solver"]}
         speed={75}
         pause={1000}
       />

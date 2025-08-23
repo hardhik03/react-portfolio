@@ -1,10 +1,9 @@
+import { motion } from "framer-motion";
 import csulogo from "../assets/csulogo.png";
 import energylogo from "../assets/energyinstitute.png";
 import alfaleus from "../assets/alfaleus.jpg";
 import apgenco from "../assets/apgenco.jpg";
-import iste from "../assets/iste.png";
 import toshiba from "../assets/toshiba.jpg";
-import {motion} from 'framer-motion';
 
 const experiences = [
   {
@@ -67,22 +66,21 @@ const ExperienceCard = ({ exp, align = "left" }) => {
   const isLeft = align === "left";
 
   return (
-    <motion.div 
-    whileInView={{opacity:1, y:0 }}
-    initial={{opacity:0, y:100 }}
-    transition={{duration: 0.5}}
-    className={`relative w-full flex ${isLeft ? "justify-start" : "justify-end"} mb-20`}>
+    <div className={`relative w-full flex-col md:flex-row items-center ${isLeft ? "md:justify-start" : "md:justify-end"} mb-20`}>
+      {/* Connector Line and Dot */}
       <div
-        className={`bg-[#181824]/90 border border-[#282848] shadow-md rounded-xl p-4 md:p-6 max-w-[480px] z-10 relative
+        className={`hidden md:block absolute top-1/2 ${isLeft ? "left-0 -translate-x-[140%]" : "right-0 translate-x-[140%]"} -translate-y-1/2 z-20`}
+      >
+        <div className={`absolute top-1/2 -translate-y-1/2 h-[2px] w-8 bg-purple-600 ${isLeft ? "right-full" : "left-full"}`} />
+        <div className="w-4 h-4 bg-purple-600 border-4 border-white rounded-full"></div>
+      </div>
+
+      {/* Experience Card */}
+      <div
+        className={`bg-[#181824]/90 border border-[#282848] shadow-md rounded-xl p-4 md:p-6 max-w-[480px] w-full z-10 relative
         ${isLeft ? "md:mr-auto" : "md:ml-auto"}`}
       >
-        {/* Logo */}
-        <img
-          src={exp.logo}
-          alt={`${exp.company} logo`}
-          className="absolute top-4 right-4 w-10 h-10 object-contain rounded"
-        />
-
+        <img src={exp.logo} alt={`${exp.company} logo`} className="absolute top-4 right-4 w-10 h-10 object-contain rounded" />
         <h3 className="text-white font-bold text-xl mb-1">{exp.role}</h3>
         <div className="text-gray-300 text-sm">{exp.company}</div>
         <div className="text-gray-400 text-xs mb-4">{exp.period}</div>
@@ -99,37 +97,39 @@ const ExperienceCard = ({ exp, align = "left" }) => {
           ))}
         </div>
       </div>
-
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-6 h-6 bg-purple-600 border-4 border-white rounded-full z-20"></div>
-    </motion.div>
+    </div>
   );
 };
 
 const Experience = () => {
   return (
     <section className="relative px-4 py-20 bg-transparent w-full overflow-x-hidden" id="experience">
-      <motion.h2
-       whileInView={{opacity:1, y:0 }}
-            initial={{opacity:0, y:100 }}
-            transition={{duration: 0.5}} className="text-4xl text-white font-extrabold text-center mb-10">
-        Experience
-        <div className="w-50 h-1 bg-purple-500 mx-auto mt-2 rounded-full"></div>
-      </motion.h2>
+      <div className="text-center mb-12">
+        <motion.h2
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-extrabold text-white"
+        >
+          Experience <span className="text-purple-500"> </span>
+        </motion.h2>
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-56 h-1 bg-purple-500 mx-auto mt-2 rounded-full"
+        />
+      </div>
 
-      <div className="hidden md:block absolute left-1/2 top-32 bottom-24 w-[2px] bg-purple-600 z-0"></div>
+      <div className="hidden md:block absolute left-1/2 top-[220px] bottom-0 w-[2px] bg-purple-600 z-0" />
 
       <div className="relative z-10 flex flex-col gap-10 max-w-5xl mx-auto">
         {experiences.map((exp, idx) => (
-          <ExperienceCard
-            key={idx}
-            exp={exp}
-            align={idx % 2 === 0 ? "left" : "right"}
-          />
+          <ExperienceCard key={idx} exp={exp} align={idx % 2 === 0 ? "left" : "right"} />
         ))}
       </div>
 
       <div className="relative w-full mt-[-1rem] flex justify-center items-center z-10">
-        <div className="absolute w-40 h-1 bg-purple-500 rounded-full"></div>
         <div className="w-5 h-5 bg-purple-600 border-4 border-white rounded-full z-10"></div>
       </div>
     </section>

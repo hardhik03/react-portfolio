@@ -60,7 +60,7 @@ const CircuitBackground = () => {
   const { width, height } = dimensions;
   const phases = [0, (2 * Math.PI) / 3, (4 * Math.PI) / 3];
   const colors = ["#ff2a2a", "#ffe600", "#0090ff"];
-  const opacities = [0.1, 0.1, 0.1];
+  const opacities = [0.2, 0.2, 0.2];
   const animationSpeed = `${Math.max(5, width / 300)}s`; // Scales animation speed
 
   const gridSpacing = Math.max(40, width / 30);
@@ -133,7 +133,7 @@ const CircuitBackground = () => {
           width={width / 2}
           height={height}
           fill="#000"
-          opacity="0.35"
+          opacity="0.2"
         />
 
         <path
@@ -142,7 +142,7 @@ const CircuitBackground = () => {
           strokeWidth="1"
           fill="none"
           filter="url(#glow)"
-          opacity="0.15"
+          opacity="0.3"
         >
           <animate
             attributeName="stroke-dasharray"
